@@ -9,7 +9,7 @@
         <style>
             .cabecalho {
                 width: 100%;
-                height: 150px !important;
+                height: 120px !important;
                 text-align: center;
                 position: relative;
             }
@@ -36,18 +36,18 @@
                 width: 100%;
             }
             .matriz .cell {
-                width: 130px;
-                height: 130px;
+                width: 110px;
+                height: 63px;
                 float: left;
-                margin: 6px;
+                margin: 4px;
                 border: 1px solid #000000;
                 text-align: center;
                 padding: 10px;
                 cursor: pointer;
             }
             .matriz .cell-empty {
-                width: 130px;
-                height: 130px;
+                width: 110px;
+                height: 63px;
                 float: left;
                 margin: 6px;
                 padding: 10px;
@@ -58,7 +58,7 @@
             .matriz .cell p {
                 text-align: center;
                 font-weight: bold;
-                font-size: 12px;
+                font-size: 10px;
             }
             .available {
                 background-color: lightblue;
@@ -77,10 +77,10 @@
             <section class="cabecalho">
                 <div class="center">
                     <a href="http://www.decom.cefetmg.br/" target="_blank" class="left">
-                        <img src="http://www.decom.ufop.br/sibgrapi2012/images/stories/decom.png" width="150" height="150" /> //FORcom.jr
+                        <img src="http://www.decom.ufop.br/sibgrapi2012/images/stories/decom.png" width="100" height="100" />
                     </a>
-                    <a href="https://ufop.br/" target="_blank" class="right">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Logo_CEFET-MG.png" width="150" height="150" />
+                    <a href="http://www.decom.cefetmg.br/" target="_blank" class="right">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Logo_CEFET-MG.png" width="100" height="100" />
                     </a>
                     <h3>Grade de Engenharia de Computação - Cefet MG</h3>
                 </div>
@@ -88,9 +88,6 @@
 
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <div class="left">
-                            <h4>Contribua com o <a href="https://github.com/lucascdornelas/Cefetmg" target="_blank">repositório de matérias do curso</a>.</h4>
-                    </div>
                     <div class="right">
                         <strong>Total de horas cursadas: </strong>
                         <span id="total">0</span>h
@@ -135,7 +132,60 @@
                         <input type="hidden" name="carga" value=60>
                         <input type='hidden' name="required" value='["2DB.003"]' />
                     </div>
-                    
+                    <div class="cell blocked" id="2DB.020">
+                        <p>2DB.019 - Física II</p>
+                        <p>Carga horária: 60h</p>
+                        <input type="hidden" name="carga" value=60>
+                        <input type='hidden' name="required" value='["2DB.019"]' />
+                    </div>
+                    <div class="cell blocked" id="2DB.009">
+                        <p>2DB.019 - Física III</p>
+                        <p>Carga horária: 60h</p>
+                        <input type="hidden" name="carga" value=60>
+                        <input type='hidden' name="required" value='["2DB.020"]' />
+                    </div>    
+                </div>
+                <div class="linha">
+                    <div class="cell available" id="2ECOM.004">
+                        <p>2ECOM.004 - Introdução à Engenharia de Computação</p>
+                        <p>Carga horária: 30h</p>
+                        <input type="hidden" name="carga" value=30>
+                    </div>
+                    <div class="cell available" id="2ECOM.008">
+                        <p>2ECOM.008 - Inglês Instrumental I</p>
+                        <p>Carga horária: 30h</p>
+                        <input type="hidden" name="carga" value=30>
+                    </div>
+                    <div class="cell blocked" id="2DB.012">
+                        <p>2DB.012 - Física experimental I</p>
+                        <p>Carga horária: 30h</p>
+                        <input type="hidden" name="carga" value=30>
+                        <input type='hidden' name="required" value='["2DB.019"]' />
+                    </div>
+                    <div class="cell blocked" id="BCC_323">
+                        <p>2DB.013 - Física Experimental II</p>
+                        <p>Carga horária: 60h</p>
+                        <input type="hidden" name="carga" value=60>
+                        <input type='hidden' name="required" value='["2DB.012"]' />
+                    </div>
+                    <div class="cell blocked" id="BCC_327">
+                        <p>BCC 327 - Computação Gráfica</p>
+                        <p>Carga horária: 60h</p>
+                        <input type="hidden" name="carga" value=60>
+                        <input type='hidden' name="required" value='["BCC_202", "MTM_112"]' />
+                    </div>
+                    <div class="cell blocked eletiva" id="4x7">
+                        <p>Disciplina Eletiva</p>
+                        <p>Carga horária: 60h</p>
+                        <input type="hidden" name="carga" value=60>
+                        <input type='hidden' name="required" value='["__720__"]' />
+                    </div>
+                    <div class="cell blocked facultativa" id="4x8">
+                        <p>Disciplina Facultativa</p>
+                        <p>Carga horária: 60h</p>
+                        <input type="hidden" name="carga" value=60>
+                        <input type='hidden' name="required" value='["__720__"]' />
+                    </div>
                 </div>
                 <div class="linha">
                     <div class="cell available" id="2EC0M.001">
@@ -161,75 +211,30 @@
                         <input type="hidden" name="carga" value=60>
                         <input type='hidden' name="required" value='["2ECOM.020"]' />
                     </div>
-                </div>
+                </div>               
                 <div class="linha">
-                    <div class="cell-empty" style="border: 0px;" id="4x1">
+                    <div class="cell available" id="2ECOM.002">
+                        <p>2ECOM.002 - Lab. de Programação de Computadores I</p>
+                        <p>Carga horária: 30</p>
+                        <input type="hidden" name="carga" value=30>
                     </div>
-                    <div class="cell available" id="EAD_700">
-                        <p>EAD 700 - Prática de Leitura e Produção de Texto</p>
-                        <p>Carga horária: 60h</p>
+                    <div class="cell blocked" id="2ECOM.008">
+                        <p>2ECOM.002 - Lab. de Programação de Computadores II</p>
+                        <p>Carga horária: 30</p>
+                        <input type="hidden" name="carga" value=30>
+                        <input type='hidden' name="required" value='["2ECOM.002"]' />
+                    </div>
+                    <div class="cell blocked" id="2ECOM.021">
+                        <p>2ECOM.021 - Lab. Algoritmos e Estrutura de Dados I</p>
+                        <p>Carga horária: 30h</p>
                         <input type="hidden" name="carga" value=60>
+                        <input type='hidden' name="required" value='["2ECOM.008"]' />
                     </div>
-                    <div class="cell blocked" id="BCC_221">
-                        <p>BCC 221 - Programação Orientada à Objetos</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["BCC_202"]' />
-                    </div>
-                    <div class="cell blocked" id="BCC_322">
-                        <p>BCC 322 - Engenharia de Software I</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["BCC_221"]' />
-                    </div>
-                    <div class="cell blocked" id="BCC_323">
-                        <p>BCC 323 - Engenharia II</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["BCC_322"]' />
-                    </div>
-                    <div class="cell blocked" id="BCC_327">
-                        <p>BCC 327 - Computação Gráfica</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["BCC_202", "MTM_112"]' />
-                    </div>
-                    <div class="cell blocked eletiva" id="4x7">
-                        <p>Disciplina Eletiva</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["__720__"]' />
-                    </div>
-                    <div class="cell blocked facultativa" id="4x8">
-                        <p>Disciplina Facultativa</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["__720__"]' />
-                    </div>
-                </div>
-                <div class="linha">
-                    <div class="cell available" id="BCC_201">
-                        <p>BCC 201 - Introdução à Programação</p>
-                        <p>Carga horária: 90h</p>
-                        <input type="hidden" name="carga" value=90>
-                    </div>
-                    <div class="cell blocked" id="BCC_202">
-                        <p>BCC 202 - Estrutura de Dados I</p>
-                        <p>Carga horária: 90h</p>
-                        <input type="hidden" name="carga" value=90>
-                        <input type='hidden' name="required" value='["BCC_201"]' />
-                    </div>
-                    <div class="cell blocked" id="BCC_203">
-                        <p>BCC 203 - Estrutura de Dados II</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["BCC_202"]' />
-                    </div>
-                    <div class="cell blocked" id="BCC_361">
-                        <p>BCC 361 - Redes de Computadores</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["BCC_202", "BCC_263"]' />
+                    <div class="cell blocked" id="2ECOM.025">
+                        <p>2ECOM.025 - Lab. Algoritmos e Estrutura de Dados II</p>
+                        <p>Carga horária: 30h</p>
+                        <input type="hidden" name="carga" value=30>
+                        <input type='hidden' name="required" value='["2ECOM.021"]' />
                     </div>
                     <div class="cell blocked" id="BCC_362">
                         <p>BCC 362 - Sistemas Distribuídos</p>
@@ -257,16 +262,16 @@
                     </div>
                 </div>
                 <div class="linha">
-                    <div class="cell available" id="BCC_265">
-                        <p>BCC 265 - Eletronica para Computação</p>
+                    <div class="cell available" id="2ECOM.008A">
+                        <p>2ECOM.008A - Matemática Discreta</p>
                         <p>Carga horária: 60h</p>
                         <input type="hidden" name="carga" value=60>
                     </div>
-                    <div class="cell blocked" id="BCC_266">
-                        <p>BCC 266 - Organização de Computadores</p>
+                    <div class="cell blocked" id="2ECOM.015">
+                        <p>2ECOM.015 - Computação Gráfica</p>
                         <p>Carga horária: 60h</p>
                         <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["BCC_265", "BCC_201"]' />
+                        <input type='hidden' name="required" value='["2ECOM.001", "2ECOM.002", "2DB.004"]' />
                     </div>
                     <div class="cell blocked" id="BCC_263">
                         <p>BCC 263 - Arquitetura de Computadores</p>
@@ -303,6 +308,26 @@
                         <p>Carga horária: 60h</p>
                         <input type="hidden" name="carga" value=60>
                         <input type='hidden' name="required" value='["__720__"]' />
+                    </div>
+                </div>
+                <div class="linha">
+                    <div class="cell available" id="2DG.007A">
+                        <p>2DG.007A - Português Instrumental</p>
+                        <p>Carga horária: 30h</p>
+                        <input type="hidden" name="carga" value=30>
+                    </div>
+                    <div class="cell blocked" id="2ECOM.016">
+                        <p>2ECOM.016 - Sistemas Digitais p/ Computação</p>
+                        <p>Carga horaria: 30h</p>
+                        <input type="hidden" name="carga" value=30>
+                        <input type="hidden" name="required" value='["2ECOM.001", "2ECOM.002"]'>
+                    </div>                    
+                </div>
+                <div classe="linha">
+                    <div class="cell available" id="2DG.003">
+                        <p>2DG.003 Metodologia Cientifica</p>
+                        <p>Carga horária: 30h</p>
+                        <input type="hidden" name="carga" value=30>
                     </div>
                 </div>
             </div>
