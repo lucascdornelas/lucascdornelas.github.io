@@ -1,340 +1,499 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 
-        <title>Grade de Engenharia de Computação - Cefet MG</title>
+	<title>Grade de Engenharia de Computação</title>
 
-        <style>
-            .cabecalho {
-                width: 100%;
-                height: 120px !important;
-                text-align: center;
-                position: relative;
-            }
-            .center {
-                text-align: center;
-                height: 150px;
-            }
-            .center h3 {
-                font-size: 26px;
-                margin: 0;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-            .left {
-                float: left;
-            }
-            .right {
-                float: right;
-            }
-            .matriz {
-                height: 100%;
-                width: 100%;
-            }
-            .matriz .cell {
-                width: 110px;
-                height: 63px;
-                float: left;
-                margin: 4px;
-                border: 1px solid #000000;
-                text-align: center;
-                padding: 10px;
-                cursor: pointer;
-            }
-            .matriz .cell-empty {
-                width: 110px;
-                height: 63px;
-                float: left;
-                margin: 6px;
-                padding: 10px;
-            }
-            .matriz .linha {
-                overflow: auto;
-            }
-            .matriz .cell p {
-                text-align: center;
-                font-weight: bold;
-                font-size: 10px;
-            }
-            .available {
-                background-color: lightblue;
-            }
-            .done {
-                background-color: lightgreen;
-            }
-            .blocked {
-                background-color: lightcoral;
-            }
-        </style>
-    </head>
+	<style>
+		.cell{
+			width: 140px;
+            height: 73px;
+            float: left;
+            margin: 4px;
+            border: 1px solid #000000;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+		}
+		.cell p{
+			text-align: center;
+            font-weight: normal;
+            font-size: 12px;
+		}
+		.periodo{
+			width: 1100px;
+            height: 100px;
+            margin: 5px;
+            border: 1px solid #000000;
+            padding: 10px;
+		}
 
-    <body class="bg-light">
-        <div class="container">
+		.periodo h5{
+            font-weight: bold;
+            font-size: 12px;
+		}
+
+		.grade {
+			align-items: center;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.available {
+            background-color: lightblue;
+        }
+        
+        .blocked {
+        	background-color: rgb(201, 76, 76);
+        }
+        .done {
+        	background-color: rgb(254, 190, 154);
+        }
+        .container h3{
+        	text-align: center;
+        	font-weight: bold;
+            font-size: 25px;
+        }
+
+    	.cabecalho {
+            width: 100%;
+            height: 120px !important;
+            text-align: center;
+            position: relative;
+        }
+        .center {
+            text-align: center;
+            height: 150px;
+        }
+        .center h3 {
+            font-size: 26px;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+	</style>
+</head>
+<body class="bg-dark">
+	<div class="container">
             <section class="cabecalho">
                 <div class="center">
-                    <a href="http://www.decom.cefetmg.br/" target="_blank" class="left">
-                        <img src="http://www.decom.ufop.br/sibgrapi2012/images/stories/decom.png" width="100" height="100" />
-                    </a>
                     <a href="http://www.decom.cefetmg.br/" target="_blank" class="right">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Logo_CEFET-MG.png" width="100" height="100" />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Logo_CEFET-MG.png" width="130" height="130" />
                     </a>
+
                     <h3>Grade de Engenharia de Computação - Cefet MG</h3>
                 </div>
             </section>
+    </div>
+	
+	<div class="grade">
+		<!-- 1 periodo -->
+		<div class="periodo">
+			<div class = "cell available" id="2ECOM_001">
+				<p>PC1</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+			</div>
+			<div class = "cell available" id="2DB_003">
+				<p>Calculo 1</p>
+				<p>90h</p>
+				<input type="hidden" name="carga" value = 90>
+			</div>
+			<div class = "cell available" id="2DB_004">
+				<p>GAAV</p>
+				<p>90h</p>
+				<input type="hidden" name="carga" value = 90>
+			</div>
+			<div class = "cell available" id="2ECOM_008">
+				<p>Matematica Discreta</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+			</div>
+			<div class = "cell available" id="2DG_007A">
+				<p>Português instrumental</p>
+				<p>30h</p>
+				<input type="hidden" name="carga" value = 30>
+			</div>
+			<div class = "cell available" id="2DG_003">
+				<p>Metodologia Cientifica</p>
+				<p>30h</p>
+				<input type="hidden" name="carga" value = 30>
+			</div>
+			<div class = "cell available" id="2ECOM_004">
+				<p>Introdução à Eng. de Computação</p>
+				<p>30h</p>
+				<input type="hidden" name="carga" value = 30>
+			</div>
+		</div>
+		<!-- 2 periodo -->
+		<div class="periodo">
+			<div class = "cell blocked" id="2ECOM_007">
+				<p>PC2</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2ECOM_001"]'>
+			</div>
+			<div class = "cell blocked" id="2DB_014">
+				<p>Calculo 2</p>
+				<p>90h</p>
+				<input type="hidden" name="carga" value = 90>
+				<input type="hidden" name="required" value='["2DB_003"]'>
+			</div>
+			<div class = "cell blocked" id="2DB_019">
+				<p>Física 1</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 90>
+				<input type="hidden" name="required" value='["2DB_003"]'>
+			</div>
+			<div class = "cell blocked" id="2ECOM_015">
+				<p>Computação Grafica</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2ECOM_001", "2DB_004"]'>
+			</div>
+			<div class = "cell blocked" id="2ECOM_016">
+				<p>Sistemas Digitais</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2ECOM_001"]'>
+			</div>
+			<div class = "cell available" id="2DG_012">
+				<p>Filosofia da tecnologia</p>
+				<p>30h</p>
+				<input type="hidden" name="carga" value = 30>
+			</div>
+			<div class = "cell available" id="2DG.016">
+				<p>Ingles Instrumental</p>
+				<p>30h</p>
+				<input type="hidden" name="carga" value = 30>
+			</div>
+		</div>
+		<!-- 3 periodo -->
+		<div class="periodo">
+			<div class="cell blocked" id="2ECOM_020">
+				<p>Algorí. e Estrut. de Dados I</p>
+				<p>90h</p>
+				<input type="hidden" name="carga" value = 90>
+				<input type="hidden" name="required" value='["2ECOM_007"]'>
+			</div>
+			<div class="cell blocked" id="2DB_015">
+				<p>Cálculo 3</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2DB_014"]'>
+			</div>
+			<div class="cell blocked" id="2DB_012">
+				<p>Física Experimental 1</p>
+				<p>30h</p>
+				<input type="hidden" name="carga" value = 30>
+				<input type="hidden" name="required" value='["2DB_019"]'>
+			</div>
+			<div class="cell blocked" id="2DB_020">
+				<p>Física 2</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2DB_019", "2DB_014"]'>
+			</div>
+			<div class="cell blocked" id="2ECOM_006">
+				<p>Metodos Numericos Computacionais</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2ECOM_007"]'>
+			</div>
+			<div class="cell blocked" id="2ECOM_022">
+				<p>Arq. e Organização de Computadores 1</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2ECOM_016"]'>
+			</div>
+			<div class="cell blocked" id="2x1">
+                <p>Disciplina Optativa</p>
+                <p>60h</p>
+                <input type="hidden" name="carga" value=60>
+                <input type='hidden' name="required" value='["__390__"]' />
+            </div>
+		</div>
+		<!-- 4 periodo -->
+		<div class="periodo">
+			<div class = "cell blocked" id="2ECOM_025">
+				<p>Algorí. e Estrut. de Dados II</p>
+				<p>90h</p>
+				<input type="hidden" name="carga" value = 90>
+				<input type="hidden" name="required" value='["2ECOM_020"]'>
+			</div>
+			<div class = "cell blocked" id="2DB_016">
+				<p>Calculo 4</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2DB_015"]'>
+			</div>
+			<div class = "cell blocked" id="2DB_013">
+				<p>Física Experimental 2</p>
+				<p>30h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2DB_020"]'>
+			</div>
+			<div class = "cell blocked" id="2DB_009">
+				<p>Fisica III</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2DB_020"]'>
+			</div>
+			<div class = "cell blocked" id="2ECOM_009">
+				<p>Linguagem de Programação</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2ECOM_020"]'>
+			</div>
+			<div class = "cell blocked" id="2ECOM_027">
+				<p>Arq. de Computadores II</p>
+				<p>90h</p>
+				<input type="hidden" name="carga" value = 90>
+				<input type="hidden" name="required" value='["2ECOM_022"]'>
+			</div>
+			<div class="cell blocked" id="2x1">
+                <p>Disciplina Optativa</p>
+                <p>60h</p>
+                <input type="hidden" name="carga" value=60>
+                <input type='hidden' name="required" value='["__390__"]' />
+            </div>
+		</div>
+		<!-- 5 periodo -->
+		<div class="periodo">
+			<div class="cell blocked" id="2ECOM_031">
+				<p>Modelagem e Desenv. de software</p>
+				<p>90h</p>
+				<input type="hidden" name="carga" value = 90>
+				<input type="hidden" name="required" value='["2ECOM_009"]'>
+			</div>
+			<div class="cell blocked" id="2ECOM_033">
+				<p>Banco de Dados I</p>
+				<p>90h</p>
+				<input type="hidden" name="carga" value = 90>
+				<input type="hidden" name="required" value='["2ECOM_025"]'>
+			</div>
+			<div class="cell blocked" id="2ECOM_035">
+				<p>Linguagem Formais e Autômatos</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2ECOM_009", "2ECOM_008"]'>
+			</div>
+			<div class="cell blocked" id="2ECOM_036">
+				<p>Prínc. de comuni. de Dados</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2DB_009", "2ECOM_016"]'>
+			</div>
+			<div class="cell blocked" id="2DB_017">
+				<p>Álgebra Linear</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2DB_014", "2DB_004"]'>
+			</div>
+		</div>
+		<!-- 6 periodo -->
+		<div class="periodo">
+			<div class = "cell blocked" id="2ECOM_042">
+				<p>Engenharia de software I</p>
+				<p>90h</p>
+				<input type="hidden" name="carga" value = 90>
+				<input type="hidden" name="required" value='["2ECOM_031"]'>
+			</div>
+			<div class = "cell blocked" id="2ECOM_044">
+				<p>Redes de Computador I</p>
+				<p>90h</p>
+				<input type="hidden" name="carga" value = 90>
+				<input type="hidden" name="required" value='["2ECOM_036"]'>
+			</div>
+			<div class = "cell blocked" id="2ECOM_072">
+				<p>Sistemas Operacionais</p>
+				<p>90h</p>
+				<input type="hidden" name="carga" value = 90>
+				<input type="hidden" name="required" value='["2ECOM_027"]'>
+			</div>
+			<div class = "cell blocked" id="2ECOM_046">
+				<p>Controle de Sistemas Dinâmicos</p>
+				<p>90h</p>
+				<input type="hidden" name="carga" value = 90>
+				<input type="hidden" name="required" value='["2ECOM_006"]'>
+			</div>
+			<div class="cell blocked" id="6x1">
+                <p>Disciplina Optativa</p>
+                <p>60h</p>
+                <input type="hidden" name="carga" value=60>
+                <input type='hidden' name="required" value='["__790__"]' />
+            </div>
+            <div class="cell blocked" id="6x1">
+                <p>Disciplina Optativa</p>
+                <p>60h</p>
+                <input type="hidden" name="carga" value=60>
+                <input type='hidden' name="required" value='["__790__"]' />
+            </div>
+		</div>
+		<!-- 7 periodo -->
+		<div class="periodo">
+			<div class = "cell blocked" id="2ECOM_052">
+				<p>Inteligencia Artificial</p>
+				<p>90h</p>
+				<input type="hidden" name="carga" value = 90>
+				<input type="hidden" name="required" value='["2DB_017", "2ECOM_025", "2ECOM_006"]'>
+			</div>
+			<div class = "cell blocked" id="2ECOM_044">
+				<p>Compiladores</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2ECOM_025", "2ECOM_009", "2ECOM_035"]'>
+			</div>
+			<div class = "cell blocked" id="2DG_023">
+				<p>Pscologia Aplicada às Organizações</p>
+				<p>30h</p>
+				<input type="hidden" name="carga" value = 30>
+				<input type="hidden" name="required" value='["__1950__"]'>
+			</div>
+			<div class = "cell blocked" id="2ECOM_055">
+				<p>Otmização I</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2DB_017", "2ECOM_025"]'>
+			</div>
+			<div class = "cell blocked" id="2ECOM_060">
+				<p>Cont. Digital de Sist. Dinamicos</p>
+				<p>90h</p>
+				<input type="hidden" name="carga" value = 90>
+				<input type="hidden" name="required" value='["2ECOM_046"]'>
+			</div>
+			<div class="cell blocked" id="7x1">
+                <p>Disciplina Optativa</p>
+                <p>60h</p>
+                <input type="hidden" name="carga" value=60>
+                <input type='hidden' name="required" value='["__1200__"]' />
+            </div>
+		</div>
+		<!-- 8 periodo -->
+		<div class="periodo">
+			<div class = "cell blocked" id="2ECOM.063">
+				<p>Interação humano-Computador</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2ECOM_031"]'>
+			</div>
+			<div class = "cell blocked" id="2ECOM.064">
+				<p>Sistemas distribuidos</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2ECOM_072"]'>
+			</div>
+			<div class = "cell blocked" id="2ECOM.074">
+				<p>Otimização II</p>
+				<p>60h</p>
+				<input type="hidden" name="carga" value = 60>
+				<input type="hidden" name="required" value='["2ECOM_055"]'>
+			</div>
+			<div class = "cell blocked" id="2DG_041">
+				<p>Introd. à Adm.</p>
+				<p>30h</p>
+				<input type="hidden" name="carga" value = 30>
+				<input type="hidden" name="required" value='["__1950__"]'>
+			</div>
+			<div class = "cell blocked" id="2ECOM.067">
+				<p>Inteligencia Computacional I</p>
+				<p>90h</p>
+				<input type="hidden" name="carga" value = 30>
+				<input type="hidden" name="required" value='["2ECOM_052"]'>
+			</div>
+			<div class="cell blocked" id="8x1">
+                <p>Disciplina Optativa</p>
+                <p>60h</p>
+                <input type="hidden" name="carga" value=60>
+                <input type='hidden' name="required" value='["__1950__"]' />
+            </div>
+		</div>
+		<!-- 9 periodo -->
+		<div class="periodo">
+			<div class = "cell blocked" id="2DG_025">
+				<p>TCC I</p>
+				<p>15h</p>
+				<input type="hidden" name="carga" value = 15>
+				<input type="hidden" name="required" value='["__3450__"]'>
+			</div>
+			<div class = "cell blocked" id="2ECOM_075">
+				<p>Cotexto social e prof. de eng. de comp.</p>
+				<p>30h</p>
+				<input type="hidden" name="carga" value = 30>
+				<input type="hidden" name="required" value='["__1950__"]'>
+			</div>
+			<div class = "cell blocked" id="2DG_024">
+				<p>Introdução à sociologia</p>
+				<p>30h</p>
+				<input type="hidden" name="carga" value = 30>
+				<input type="hidden" name="required" value='["__1950__"]'>
+			</div>
+			<div class = "cell blocked" id="2ECOM_046">
+				<p>Organização Empresarial A</p>
+				<p>30h</p>
+				<input type="hidden" name="carga" value = 30>
+				<input type="hidden" name="required" value='["__1950__"]'>
+			</div>
+			<div class = "cell blocked" id="2DG_042">
+				<p>Metodologia de Pesquisa</p>
+				<p>30h</p>
+				<input type="hidden" name="carga" value = 30>
+				<input type="hidden" name="required" value='["__3450__"]'>
+			</div>
+			<div class="cell blocked" id="9x1">
+                <p>Disciplina Optativa</p>
+                <p>60h</p>
+                <input type="hidden" name="carga" value=60>
+                <input type='hidden' name="required" value='["__1950__"]' />
+            </div>
+		</div>
+		<!-- 10 periodo -->
+		<div class="periodo">
+			<div class="cell blocked" id="2DG_026">
+				<p>TCC II</p>
+				<p>15h</p>	
+				<input type="hidden" name="carga" value = 15>
+				<input type="hidden" name="required" value='["2DG_025"]'>
+			</div>
+			<div class="cell blocked" id="2DG_027">
+				<p>Estágio supervisionado</p>
+				<p>30h</p>
+				<input type="hidden" name="carga" value = 30>
+				<input type="hidden" name="required" value='["__2550__"]'>
+			</div>
+			<div class="cell blocked" id="2x1">
+                <p>Disciplina Optativa</p>
+                <p>60h</p>
+                <input type="hidden" name="carga" value=60>
+                <input type='hidden' name="required" value='["__2550__"]' />
+            </div>
+		</div>
+	</div>
 
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="right">
-                        <strong>Total de horas cursadas: </strong>
-                        <span id="total">0</span>h
-                    </div>
-                </div>
+	<div class="panel panel-default">
+        <div class="panel-body">
+            <div class="left">
+                <strong>Total de horas cursadas: </strong>
+                <span id="total">0</span>h
             </div>
-            <div class="matriz">
-                <div class="linha">
-                    <div class="cell available" id="2DB.003">
-                        <p>2DB.003 - Cálculo Diferencial e Integral I</p>
-                        <p>Carga horária: 90h</p>
-                        <input type="hidden" name="carga" value=90>
-                    </div>
-                    <div class="cell blocked" id="2DB.014">
-                        <p>2DB.014 - Cálculo Diferencial e Integral II</p>
-                        <p>Carga horária: 90h</p>
-                        <input type="hidden" name="carga" value=90>
-                        <input type='hidden' name="required" value='["2DB.003"]' />
-                    </div>
-                    <div class="cell blocked" id="2DB.015">
-                        <p>2DB.015 - Cálculo Diferencial e Integral III</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["2DB.014"]' />
-                    </div>
-                    <div class="cell blocked" id="2DB.016">
-                        <p>2DB.016 - Cálculo Diferencial e Integral IV</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["2DB.015"]' />
-                    </div>
-                </div>
-                <div class="linha">
-                    <div class="cell available" id="2DB.004">
-                        <p>2DB.004 - Geometria Analítica e Álgebra Vetorial</p>
-                        <p>Carga horária: 90h</p>
-                        <input type="hidden" name="carga" value=90>
-                    </div>
-                    <div class="cell blocked" id="2DB.019">
-                        <p>2DB.019 - Física I</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["2DB.003"]' />
-                    </div>
-                    <div class="cell blocked" id="2DB.020">
-                        <p>2DB.019 - Física II</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["2DB.019"]' />
-                    </div>
-                    <div class="cell blocked" id="2DB.009">
-                        <p>2DB.019 - Física III</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["2DB.020"]' />
-                    </div>    
-                </div>
-                <div class="linha">
-                    <div class="cell available" id="2ECOM.004">
-                        <p>2ECOM.004 - Introdução à Engenharia de Computação</p>
-                        <p>Carga horária: 30h</p>
-                        <input type="hidden" name="carga" value=30>
-                    </div>
-                    <div class="cell available" id="2ECOM.008">
-                        <p>2ECOM.008 - Inglês Instrumental I</p>
-                        <p>Carga horária: 30h</p>
-                        <input type="hidden" name="carga" value=30>
-                    </div>
-                    <div class="cell blocked" id="2DB.012">
-                        <p>2DB.012 - Física experimental I</p>
-                        <p>Carga horária: 30h</p>
-                        <input type="hidden" name="carga" value=30>
-                        <input type='hidden' name="required" value='["2DB.019"]' />
-                    </div>
-                    <div class="cell blocked" id="BCC_323">
-                        <p>2DB.013 - Física Experimental II</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["2DB.012"]' />
-                    </div>
-                    <div class="cell blocked" id="BCC_327">
-                        <p>BCC 327 - Computação Gráfica</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["BCC_202", "MTM_112"]' />
-                    </div>
-                    <div class="cell blocked eletiva" id="4x7">
-                        <p>Disciplina Eletiva</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["__720__"]' />
-                    </div>
-                    <div class="cell blocked facultativa" id="4x8">
-                        <p>Disciplina Facultativa</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["__720__"]' />
-                    </div>
-                </div>
-                <div class="linha">
-                    <div class="cell available" id="2EC0M.001">
-                        <p>2ECOM.001 - Programação de Computadores I</p>
-                        <p>Carga horária: 30h</p>
-                        <input type="hidden" name="carga" value=30>
-                    </div>
-                    <div class="cell blocked" id="2ECOM.007">
-                        <p>2ECOM.007 - Programação de Computadores II</p>
-                        <p>Carga horária: 30h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["2ECOM.001"]' />
-                    </div>
-                    <div class="cell blocked" id="2ECOM.020">
-                        <p>2ECOM.020 - Algoritmo e Estrutura de Dados I</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["2ECOM.007"]' />
-                    </div>
-                    <div class="cell blocked" id="2ECOM.024">
-                        <p>2ECOM.024 - Algoritmo e Estrutura de Dados II</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["2ECOM.020"]' />
-                    </div>
-                </div>               
-                <div class="linha">
-                    <div class="cell available" id="2ECOM.002">
-                        <p>2ECOM.002 - Lab. de Programação de Computadores I</p>
-                        <p>Carga horária: 30</p>
-                        <input type="hidden" name="carga" value=30>
-                    </div>
-                    <div class="cell blocked" id="2ECOM.008">
-                        <p>2ECOM.002 - Lab. de Programação de Computadores II</p>
-                        <p>Carga horária: 30</p>
-                        <input type="hidden" name="carga" value=30>
-                        <input type='hidden' name="required" value='["2ECOM.002"]' />
-                    </div>
-                    <div class="cell blocked" id="2ECOM.021">
-                        <p>2ECOM.021 - Lab. Algoritmos e Estrutura de Dados I</p>
-                        <p>Carga horária: 30h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["2ECOM.008"]' />
-                    </div>
-                    <div class="cell blocked" id="2ECOM.025">
-                        <p>2ECOM.025 - Lab. Algoritmos e Estrutura de Dados II</p>
-                        <p>Carga horária: 30h</p>
-                        <input type="hidden" name="carga" value=30>
-                        <input type='hidden' name="required" value='["2ECOM.021"]' />
-                    </div>
-                    <div class="cell blocked" id="BCC_362">
-                        <p>BCC 362 - Sistemas Distribuídos</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["BCC_361", "BCC_264"]' />
-                    </div>
-                    <div class="cell blocked" id="BCC_326">
-                        <p>BCC 326 - Processamento de Imagens</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["BCC_202", "MTM_123"]' />
-                    </div>
-                    <div class="cell blocked eletiva" id="5x7">
-                        <p>Disciplina Eletiva</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["__720__"]' />
-                    </div>
-                    <div class="cell blocked eletiva" id="5x8">
-                        <p>Disciplina Eletiva</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["__720__"]' />
-                    </div>
-                </div>
-                <div class="linha">
-                    <div class="cell available" id="2ECOM.008A">
-                        <p>2ECOM.008A - Matemática Discreta</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                    </div>
-                    <div class="cell blocked" id="2ECOM.015">
-                        <p>2ECOM.015 - Computação Gráfica</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["2ECOM.001", "2ECOM.002", "2DB.004"]' />
-                    </div>
-                    <div class="cell blocked" id="BCC_263">
-                        <p>BCC 263 - Arquitetura de Computadores</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["BCC_266"]' />
-                    </div>
-                    <div class="cell blocked" id="BCC_264">
-                        <p>BCC 264 - Sistemas Operacionais</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["BCC_202", "BCC_263"]' />
-                    </div>
-                    <div class="cell blocked" id="BCC_502">
-                        <p>BCC 502 - Metodologia Científica em Ciência da Computação</p>
-                        <p>Carga horária: 30h</p>
-                        <input type="hidden" name="carga" value=30h>
-                        <input type='hidden' name="required" value='["__720__"]' />
-                    </div>
-                    <div class="cell blocked eletiva" id="6x6">
-                        <p>Disciplina Eletiva</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["__720__"]' />
-                    </div>
-                    <div class="cell blocked eletiva" id="6x7">
-                        <p>Disciplina Eletiva</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["__720__"]' />
-                    </div>
-                    <div class="cell blocked eletiva" id="6x8">
-                        <p>Disciplina Eletiva</p>
-                        <p>Carga horária: 60h</p>
-                        <input type="hidden" name="carga" value=60>
-                        <input type='hidden' name="required" value='["__720__"]' />
-                    </div>
-                </div>
-                <div class="linha">
-                    <div class="cell available" id="2DG.007A">
-                        <p>2DG.007A - Português Instrumental</p>
-                        <p>Carga horária: 30h</p>
-                        <input type="hidden" name="carga" value=30>
-                    </div>
-                    <div class="cell blocked" id="2ECOM.016">
-                        <p>2ECOM.016 - Sistemas Digitais p/ Computação</p>
-                        <p>Carga horaria: 30h</p>
-                        <input type="hidden" name="carga" value=30>
-                        <input type="hidden" name="required" value='["2ECOM.001", "2ECOM.002"]'>
-                    </div>                    
-                </div>
-                <div classe="linha">
-                    <div class="cell available" id="2DG.003">
-                        <p>2DG.003 Metodologia Cientifica</p>
-                        <p>Carga horária: 30h</p>
-                        <input type="hidden" name="carga" value=30>
-                    </div>
-                </div>
-            </div>
-        
 
         </div>
-    </body>
+    </div>
+
+</body>
 </html>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
