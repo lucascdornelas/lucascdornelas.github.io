@@ -1,2 +1,2 @@
 <H1>GRADE DE ENGENHARIA DE COMPUTAÇÃO DO CEFET MG.</H1>
-<H2>Feita pela FORcom.jr</H2>
+
