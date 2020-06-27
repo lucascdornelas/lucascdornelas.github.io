@@ -1,0 +1,67 @@
+@font-face {
+    font-family: "pixel";
+    src: url(../fonts/Pixel.ttf);
+}
+
+.conteudo > [flappy] {
+    height: 80vh;
+    width: 90vw;
+    background-color: skyblue;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+[flappy]  .contador {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: inline-block;
+    font-family: 'pixel';
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+    width: 33px;
+    z-index: 100;
+}
+
+.player {    
+    display: block;
+    width: 70px;
+    height: 50px;
+
+    position: absolute;
+    left: calc(50% - 35px);
+    bottom: 300px;
+}
+
+[flappy] .barreira {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    left: 70px;
+    top: 0px;
+    height: 100%;
+}
+
+.cano{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.borda {
+    border: 5px solid black;
+    height: 50px;
+    width: 130px;
+    background: linear-gradient(90deg, rgb(0, 168, 0), rgb(0, 219, 0))
+}
+
+.corpo {
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+    height: 100px;
+    width: 100px;
+    background: linear-gradient(90deg, rgb(0, 168, 0), rgb(0, 219, 0))
+}
